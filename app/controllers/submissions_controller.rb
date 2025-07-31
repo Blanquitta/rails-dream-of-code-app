@@ -1,5 +1,5 @@
 class SubmissionsController < ApplicationController
-  # GET /submissions/new
+app/assets/stylesheets  # GET /submissions/new
   def new
     @course = Course.find(params[:course_id])
     @submission = Submission.new

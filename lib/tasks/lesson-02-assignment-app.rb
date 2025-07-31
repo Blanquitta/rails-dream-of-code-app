@@ -7,7 +7,7 @@ course_to_delete = Course.find(id: 22)
 course_to_delete.destroy
 
 course_to_delete = Course.last
-course_to_delete.destroybin
+course_to_delete.destroy
 
 class CreatePosts <activeRecord:Migration[8.0]
     def change_column :
