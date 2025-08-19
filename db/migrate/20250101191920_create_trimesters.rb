@@ -7,6 +7,7 @@ class CreateTrimesters < ActiveRecord::Migration[8.0]
       t.date :start_date
       t.date :end_date
 
+      
       t.timestamps
     end
   end
