@@ -29,5 +29,7 @@ Rails.application.routes.draw do
  
  get "/trimesters/:id", to: "trimesters#show"
   get "/dashboard", to: "admin_dashboard#index"
-  
+
+  get "/submission/:id", to: "submission#show"
+  get "dashboard/", to: "subm_dahsboard#index"
 end

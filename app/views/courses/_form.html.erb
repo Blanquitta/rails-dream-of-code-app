@@ -15,6 +15,11 @@
     <%= form.label :coding_class_id, style: "display: block" %>
     <%= form.select :coding_class_id, options_from_collection_for_select(@courses, :id, :title), { prompt: 'Select Lesson' }, { class: 'form-control' } %>
   <% </div> %> 
+  
+  <%= form.select :coding_class_id,
+      options_from_collection_for_select(@courses, :id, :title),
+      { prompt: 'Select Lesson' },
+      { class: 'form-control' } %>
    
   </div>
 

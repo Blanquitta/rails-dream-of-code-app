@@ -2,9 +2,12 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new
   def new
     @course = Course.find(params[:course_id])
+    @enrollments = Enrollment.all
+    @lessons = Lesson.all
+  
     @submission = Submission.new
-    @enrollments # TODO: What set of enrollments should be listed in the dropdown?
-    @lessons # TODO: What set of lessons should be listed in the dropdown?
+    # @enrollments # TODO: What set of enrollments should be listed in the dropdown?
+    # @lessons # TODO: What set of lessons should be listed in the dropdown?
   end
 
   def create
@@ -19,6 +22,9 @@ class SubmissionsController < ApplicationController
       render :new
     end
   end
+  
+
+
 
   # GET /submissions/1/edit
   def edit
@@ -33,4 +39,25 @@ class SubmissionsController < ApplicationController
     def submission_params
       params.require(:submission).permit(:lesson_id, :enrollment_id, :mentor_id, :review_result, :reviewed_at)
     end
+end
+
+
+
+def new
+  @student = Student.new
+  @courses = Course.all   # <--- this makes sure @courses is not nil
+  @submission = Submission.new
+  @susbmissions = Submission.all
+  @enrollments = Enrollment.all
+  @lessons = Lesson.all
+  
+end
+ def edit
+  @student = Student.find(params[:id])
+  @courses = Course.all
+end
+
+def edit
+  @submission = Submission.find(params[:id])
+  @submission = Submission.all
 end
