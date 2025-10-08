@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   resources :mentor_enrollment_assignments
   resources :lessons
   resources :courses
+   namespace :api do
+    namespace :v1 do
+      get '/courses', to: 'courses#index'
+    end
+  end
   resources :courses do
     resources :submissions
   end
@@ -36,7 +41,14 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-end
+
+  resources :posts 
+
+  namespace :api do
+    resources :posts, only: [:index, :show, :create, :update, :destroy]
+
+  end
+end 
 
 # get 'login', to: 'sessions#new'
 # post 'login', to: 'sessions#create'
