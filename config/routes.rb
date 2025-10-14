@@ -44,13 +44,20 @@ Rails.application.routes.draw do
 
   resources :posts 
 
-  namespace :api do
-    resources :posts, only: [:index, :show, :create, :update, :destroy]
+  # namespace :api do
+  #   resources :posts, only: [:index, :show, :create, :update, :destroy]
 
+  # end
+  namespace :api do
+    namespace :v1 do
+      get '/courses', to: 'courses#index'
+      get '/courses/:course_id/enrollments', to: 'enrollments#index'
+      post '/students', to: 'students#create'
+    end
   end
-end 
+
 
 # get 'login', to: 'sessions#new'
 # post 'login', to: 'sessions#create'
 # delete 'logout', to: 'sessions#destroy'
-# end 
+end 

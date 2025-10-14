@@ -6,9 +6,6 @@ class AdminDashboardController < ApplicationController
      @past_trimester = Trimester.where("start_date <= ?", Date.today).where("end_date >= ?", Date.today).first
     
   end
-    
-    
-
   def show
   end
     

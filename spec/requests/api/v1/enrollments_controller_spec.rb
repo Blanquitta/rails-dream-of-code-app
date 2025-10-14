@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Enrollments", type: :request,  do
+RSpec.describe "Api::V1::Enrollments", type: :request  do
   let!(:current_trimester) {
     Trimester.create!(
       term: "Term",
